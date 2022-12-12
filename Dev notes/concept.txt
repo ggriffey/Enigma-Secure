@@ -1,0 +1,37 @@
+Passcode input obfuscation generator.
+
+User can be observed entering their password and
+still be safe as long as the person observing 
+doesn't record multiple entries.
+
+each 'group' of letters will be in a circle,
+probably four circles in a diamond shape will do:
+
+       O
+    O     O 
+       O       
+
+ex. passcode = 'munch'
+
+---------
+1.  _  _  _  _  _      
+    B        L         W          P
+  M   E    Q   V    D     J     A   I
+    F        O         K          Y
+
+This represents the first character of their password.
+This would repeat 5 times. 
+
+5.  *  *  *  *  _
+(with different characters, and including the 'H')   
+    B        L         W          P
+  M   E    Q   V    D     J     A   I
+    F        O         K          Y
+
+Important:
+-   in each generation of 4 circles, no letters 
+    can be used twice.
+-   A visual representation of what character
+    the user is inputing will be shown, ex:
+    _ _ _ _ _   or   * * * _ _
+-   

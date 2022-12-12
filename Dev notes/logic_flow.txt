@@ -1,0 +1,10 @@
+NO LOOP functionality
+
+1. generate the layout
+2. generate letters / populate the circles
+3. on every click:
+    - check where we're at in the password (if char = last character of PASSWORD)
+    - handle the user choice of circle:
+        - check if char is in that circle
+    - update / increment char
+    - load new letters / circles
