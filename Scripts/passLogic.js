@@ -1,11 +1,16 @@
 const ALPHABET = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
 const PASSWORD = "ENIGMA";
-let index = 0;
-let char = PASSWORD[index].toUpperCase();
 let circles = document.getElementsByClassName("circle");
-let letterGroups = [];
+let index;
+let char;
+let letterGroups;
+let fails = 0;
 
+// Initiate sign in process
 const main = () => {
+  letterGroups = [];
+  index = 0;
+  char = PASSWORD[index].toUpperCase();
   generateCircles(char, index);
   addEventListeners();
 };
@@ -15,7 +20,15 @@ const addEventListeners = () => {
   for (let i = 0; i < 3; i++) {
     circles[i].addEventListener("click", () => {
       // console.log(`selected circle ${i}. Char is ${char}`);
-      handleSelection(i.toString(), letterGroups);
+      let responseIsCorrect = handleSelection(i.toString(), letterGroups);
+      if (!responseIsCorrect) {
+        closeForm();
+        let ableToRetry = fails >= 2 ? false : fails++;
+        if (ableToRetry === false)
+          console.log(
+            "too many failed login attempts. Please enter your email for secure login"
+          );
+      }
     });
   }
 };
@@ -24,22 +37,27 @@ const addEventListeners = () => {
 const handleSelection = (num, letterGroups) => {
   // validate user input
   if (["0", "1", "2"].includes(num)) {
-    if (index === PASSWORD.length - 1) {
-      signIn();
-      return true;
-    } else {
-      // check if user input was correct (char is in that group)
-      if (letterGroups[num].includes(char)) {
+    // Input is correct
+    if (letterGroups[num].includes(char)) {
+      // Final character of password
+      if (index === PASSWORD.length - 1) {
+        console.log("correct!");
+        signIn();
+        return true;
+        // Not final character of password
+      } else {
         console.log("correct!");
         index++;
         char = PASSWORD[index];
-        // console.log(`char is ${char} and index is ${index}`);
         generateCircles(char, index);
-      } else {
-        console.log("Incorrect selection.");
-        return false;
+        return true;
       }
+      // Incorrect selection
+    } else {
+      console.log("Incorrect selection.");
+      return false;
     }
+    // Uncaught errors
   } else {
     console.log("Error (circle id incorrect)");
     return false;

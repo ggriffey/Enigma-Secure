@@ -8,7 +8,12 @@ const addPassLayout = () => {
     circle.id = i;
     circlesDiv.appendChild(circle);
   }
-  console.log("layout generated");
+};
+
+const removePassLayout = () => {
+  for (let i = 2; i >= 0; i--) {
+    circlesDiv.removeChild(circles[i]);
+  }
 };
 
 let checkInput = function (input) {
@@ -27,6 +32,7 @@ let openForm = function () {
 
 let closeForm = function () {
   button.className = "";
+  removePassLayout();
 };
 
 document.addEventListener("keyup", function (e) {

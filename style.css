@@ -133,10 +133,6 @@ body {
   cursor: pointer;
 }
 
-.form-title {
-  margin-bottom: 40px;
-}
-
 .form-button {
   width: 100%;
   padding: 10px;
@@ -225,7 +221,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid red;
   width: 750px;
   height: 550px;
 }
@@ -239,8 +234,15 @@ body {
   border: 2px solid black;
   border-radius: 50%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+}
+
+.letter-div {
+  height: 70px;
+  width: 200px;
+  margin: 0;
+  padding: 10px;
 }
 
 .loading {
