@@ -1,6 +1,7 @@
 # Enigma-Secure
 
 LIVE APP: https://ggriffey.github.io/Enigma-Secure/
+TEST PASSWORD: "ENIGMA"
 
 # What is Enigma Secure?
 
