@@ -1,27 +1,32 @@
 const button = document.getElementById("mainButton");
 let circlesDiv = document.querySelector(".circles");
+let progress = document.getElementsByClassName("progress-text");
+let progressDiv = document.getElementsByClassName("progress");
 
 const addPassLayout = () => {
   for (let i = 0; i < 3; i++) {
+    // display circles
     let circle = document.createElement("div");
     circle.classList.add("circle");
     circle.id = i;
     circlesDiv.appendChild(circle);
   }
+  // start visual representation of character input (progress)
+  progress[0].textContent = "PASS:";
+  let submitBtn = document.createElement("button");
+  submitBtn.id = "submit-btn";
+  submitBtn.textContent = "Submit";
+  // submitBtn.onclick = signIn;  // UNCOMMENT THIS WHEN FINISHED
+  progressDiv[0].appendChild(submitBtn);
 };
 
 const removePassLayout = () => {
   for (let i = 2; i >= 0; i--) {
     circlesDiv.removeChild(circles[i]);
   }
-};
-
-let checkInput = function (input) {
-  if (input.value.length > 0) {
-    input.className = "active";
-  } else {
-    input.className = "";
-  }
+  progress.textContent = "";
+  let submitBtn = document.getElementById("submit-btn");
+  progressDiv[0].removeChild(submitBtn);
 };
 
 let openForm = function () {

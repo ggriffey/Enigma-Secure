@@ -1,6 +1,7 @@
 const ALPHABET = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
 const PASSWORD = "ENIGMA";
 let circles = document.getElementsByClassName("circle");
+let progressText = document.getElementsByClassName("progress-text");
 let index;
 let char;
 let letterGroups;
@@ -19,10 +20,11 @@ const main = () => {
 const addEventListeners = () => {
   for (let i = 0; i < 3; i++) {
     circles[i].addEventListener("click", () => {
-      // console.log(`selected circle ${i}. Char is ${char}`);
+      // handle the selection
       let responseIsCorrect = handleSelection(i.toString(), letterGroups);
       if (!responseIsCorrect) {
         closeForm();
+        // check if user has failed twice already
         let ableToRetry = fails >= 2 ? false : fails++;
         if (ableToRetry === false)
           console.log(
@@ -42,12 +44,16 @@ const handleSelection = (num, letterGroups) => {
       // Final character of password
       if (index === PASSWORD.length - 1) {
         console.log("correct!");
-        signIn();
+        // add another "*"
+        progressText[0].textContent = progressText[0].textContent + "*";
+        // proceed with sign in
+        // signIn();
         return true;
         // Not final character of password
       } else {
         console.log("correct!");
         index++;
+        progressText[0].textContent = progressText[0].textContent + "*";
         char = PASSWORD[index];
         generateCircles(char, index);
         return true;
