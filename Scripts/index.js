@@ -16,7 +16,7 @@ const addPassLayout = () => {
   let submitBtn = document.createElement("button");
   submitBtn.id = "submit-btn";
   submitBtn.textContent = "Submit";
-  // submitBtn.onclick = signIn;  // UNCOMMENT THIS WHEN FINISHED
+  submitBtn.onclick = signIn;
   progressDiv[0].appendChild(submitBtn);
 };
 
