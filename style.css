@@ -106,7 +106,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 750px;
-  height: 550px;
+  height: 300px;
 }
 
 .circle {
@@ -159,11 +159,11 @@ body {
 }
 
 .progress-text {
-  font-size: large;
+  font-size: x-large;
 }
 
 .progress-text:after {
-  font-size: large;
+  font-size: xx-large;
   content: "_";
   display: inline-block;
   animation: blink 1.5s infinite;
@@ -184,11 +184,13 @@ body {
 
 #submit-btn {
   display: inline-block;
-  width: 75px;
+  width: 68px;
+  height: 35px;
   padding: 10px;
   color: #434343;
   margin: 10px 20px;
   text-align: center;
+  font-size: 14px;
   border: none;
   border-radius: 5px;
   background-color: rgb(215, 215, 215);
